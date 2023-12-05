@@ -7,7 +7,8 @@ import { ThemeProvider } from '@/Context/ThemeProvider';
 const inter = Inter({
   subsets: ['latin'],
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-  variable: '--font-inter'
+  variable: '--font-inter',
+  display: 'swap'
 });
 
 export const metadata: Metadata = {
@@ -21,8 +22,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${inter.variable} `}>
+    <html lang="en" className={` ${inter.variable}`}>
+      <body className="">
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
