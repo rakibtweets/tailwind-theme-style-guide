@@ -1,4 +1,5 @@
 'use client';
+import { Button } from '@/components/ui/button';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -8,6 +9,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle
 } from '@/components/ui/navigation-menu';
+import { useTheme } from '@/hooks/useTheme';
 import Link from 'next/link';
 
 const components: { title: string; href: string; description: string }[] = [
@@ -48,9 +50,10 @@ const components: { title: string; href: string; description: string }[] = [
 ];
 
 const Navbar = () => {
+  const { mode, setMode } = useTheme();
   return (
     <>
-      <header className=" mx-auto flex h-12 max-w-5xl items-center justify-between  ">
+      <header className=" mx-auto flex h-12 max-w-5xl items-center justify-between p-6  ">
         <div>
           <p>Logo</p>
         </div>
@@ -130,7 +133,21 @@ const Navbar = () => {
           </NavigationMenu>
         </div>
         <div>
-          <p className="text-foreground">Dark</p>
+          <Button
+            variant="outline"
+            onClick={() => {
+              if (mode === 'dark') {
+                setMode('light');
+                localStorage.setItem('theme', 'light');
+              } else if (mode === 'light') {
+                setMode('dark');
+                localStorage.setItem('theme', 'dark');
+              }
+            }}
+            className="text-foreground"
+          >
+            {mode}
+          </Button>
         </div>
       </header>
     </>
