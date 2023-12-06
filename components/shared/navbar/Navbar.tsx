@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/navigation-menu';
 import { useTheme } from '@/hooks/useTheme';
 import Link from 'next/link';
+import MobileNav from './MobileNav';
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -57,7 +58,7 @@ const Navbar = () => {
         <div>
           <p>Logo</p>
         </div>
-        <div>
+        <div className="hidden md:block">
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
@@ -132,7 +133,7 @@ const Navbar = () => {
             </NavigationMenuList>
           </NavigationMenu>
         </div>
-        <div>
+        <div className="flex items-center justify-center gap-2">
           <Button
             variant="outline"
             onClick={() => {
@@ -148,6 +149,8 @@ const Navbar = () => {
           >
             {mode}
           </Button>
+
+          <MobileNav />
         </div>
       </header>
     </>
