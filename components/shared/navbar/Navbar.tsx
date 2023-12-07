@@ -1,5 +1,4 @@
 'use client';
-import { Button } from '@/components/ui/button';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -9,7 +8,6 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle
 } from '@/components/ui/navigation-menu';
-import { useTheme } from '@/hooks/useTheme';
 import Link from 'next/link';
 import MobileNav from './MobileNav';
 

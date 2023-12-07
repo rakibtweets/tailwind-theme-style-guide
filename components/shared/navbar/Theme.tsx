@@ -9,7 +9,7 @@ import { themes } from '@/constants';
 import { useTheme } from '@/hooks/useTheme';
 import { Moon, Sun } from 'lucide-react';
 const Theme = () => {
-  const { mode, setMode } = useTheme();
+  const { setMode } = useTheme();
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
