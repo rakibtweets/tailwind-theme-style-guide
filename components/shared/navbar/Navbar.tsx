@@ -13,45 +13,10 @@ import { useTheme } from '@/hooks/useTheme';
 import Link from 'next/link';
 import MobileNav from './MobileNav';
 
-const components: { title: string; href: string; description: string }[] = [
-  {
-    title: 'Alert Dialog',
-    href: '/docs/primitives/alert-dialog',
-    description:
-      'A modal dialog that interrupts the user with important content and expects a response.'
-  },
-  {
-    title: 'Hover Card',
-    href: '/docs/primitives/hover-card',
-    description: 'For sighted users to preview content available behind a link.'
-  },
-  {
-    title: 'Progress',
-    href: '/docs/primitives/progress',
-    description:
-      'Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.'
-  },
-  {
-    title: 'Scroll-area',
-    href: '/docs/primitives/scroll-area',
-    description: 'Visually or semantically separates content.'
-  },
-  {
-    title: 'Tabs',
-    href: '/docs/primitives/tabs',
-    description:
-      'A set of layered sections of content—known as tab panels—that are displayed one at a time.'
-  },
-  {
-    title: 'Tooltip',
-    href: '/docs/primitives/tooltip',
-    description:
-      'A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.'
-  }
-];
+import { components } from '@/constants';
+import Theme from './Theme';
 
 const Navbar = () => {
-  const { mode, setMode } = useTheme();
   return (
     <>
       <header className=" mx-auto flex h-12 max-w-5xl items-center justify-between p-6  ">
@@ -134,21 +99,9 @@ const Navbar = () => {
           </NavigationMenu>
         </div>
         <div className="flex items-center justify-center gap-2">
-          <Button
-            variant="outline"
-            onClick={() => {
-              if (mode === 'dark') {
-                setMode('light');
-                localStorage.setItem('theme', 'light');
-              } else if (mode === 'light') {
-                setMode('dark');
-                localStorage.setItem('theme', 'dark');
-              }
-            }}
-            className="text-foreground"
-          >
-            {mode}
-          </Button>
+          <div>
+            <Theme />
+          </div>
 
           <MobileNav />
         </div>
