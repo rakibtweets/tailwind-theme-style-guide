@@ -4,8 +4,10 @@ import React from 'react';
 interface LayoutProps {
   children: React.ReactNode;
   team: React.ReactNode;
+  dashboard: React.ReactNode;
 }
-const Layout = ({ children, team }: LayoutProps) => {
+const Layout = ({ children, team, dashboard }: LayoutProps) => {
+  const isAdmin = true;
   return (
     <main className="relative bg-background ">
       <Navbar />
@@ -15,7 +17,7 @@ const Layout = ({ children, team }: LayoutProps) => {
           <div className="mx-auto w-full max-w-5xl">
             <div className="flex items-center justify-center gap-3">
               <div>{children}</div>
-              <div>{team}</div>
+              {isAdmin ? <div>{dashboard}</div> : <div>{team}</div>}
             </div>
           </div>
         </section>
